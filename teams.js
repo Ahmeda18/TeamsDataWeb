@@ -35,13 +35,14 @@ const teams = [
 ];
 
 function findTeam() {
-  const input = document.getElementById('teamInput').value.trim().toLowerCase();
+  const select = document.getElementById('teamSelect');
+  const input = select.value;
   const resultDiv = document.getElementById('result');
   if (!input) {
     resultDiv.innerHTML = '';
     return;
   }
-  const team = teams.find(t => t.name.toLowerCase() === input);
+  const team = teams.find(t => t.name === input);
   if (team) {
     // Nickname is the last word of the team name
     const nickname = team.name.split(' ').slice(-1)[0];

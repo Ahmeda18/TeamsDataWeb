@@ -43,8 +43,10 @@ function findTeam() {
   }
   const team = teams.find(t => t.name.toLowerCase() === input);
   if (team) {
-    resultDiv.innerHTML = `<strong>Team:</strong> ${team.name}<br><strong>Division:</strong> ${team.division}`;
+    // Nickname is the last word of the team name
+    const nickname = team.name.split(' ').slice(-1)[0];
+    resultDiv.innerHTML = `<strong>Team:</strong> ${team.name}<br><strong>Division:</strong> ${team.division}<br><strong>Nickname:</strong> ${nickname}`;
   } else {
-    resultDiv.innerHTML = `<span class="not-found">Team not found.</span>`;
+    resultDiv.innerHTML = `<span class=\"not-found\">Team not found.</span>`;
   }
 }
